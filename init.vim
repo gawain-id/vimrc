@@ -1,3 +1,3 @@
-source $HOME/.wenvim/init/basic.vim
-source $HOME/.wenvim/init/plugins.vim
-source $HOME/.wenvim/init/keymaps.vim
+source $HOME/vimrc/init/basic.vim
+source $HOME/vimrc/init/plugins.vim
+source $HOME/vimrc/init/keymaps.vim
