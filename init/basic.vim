@@ -1,8 +1,10 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
+" @file basic.vim
+" 
 " @author gawain
 " @version 0.1
-" @last 2021/04/12 18:00
+" @last 2021/4/24 12:16:22
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim: set ts=4 sw=4 tw=78 et :
@@ -13,11 +15,12 @@
 
 set nocompatible                                " 禁用 VI 兼容模式
 
-let g:is_windows= has('win32') || has('win64')
-let g:is_linux = has('linux') && !has('unix') && !has('macunix') && !has('win32unix')
-let g:is_osx=has('mac') || has('macunix')
+let g:is_windows= has("win32") || has("win64")
+let g:is_linux = has("linux") && !has("unix") && !has("macunix") && !has("win32unix")
+let g:is_osx=has("mac") || has("macunix")
+
                                                 " 操作系统类型.
-if has('autocmd')
+if has("autocmd")
     filetype plugin indent on                   " 开启文件类型检测，包括自动缩进及设置.
 endif
 
@@ -25,7 +28,7 @@ endif
 " 文件
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 
-if has('multi_byte')                            " 编码设置.
+if has("multi_byte")                            " 编码设置.
     set encoding=utf-8                          " 内部工作编码.
     scriptencoding utf-8                        " Vim 脚本编码.
     set fileencoding=utf-8                      " 文件默认编码.
@@ -46,7 +49,7 @@ set writebackup                                 " 保存时备份.
 set backupext=.bak                              " 备份文件扩展名.
 set noswapfile                                  " 禁用交换文件.
 
-if has('persistent_undo')                       " undo 设置.
+if has("persistent_undo")                       " undo 设置.
     set undofile                                " 把撤销信息写入一个文件里.
     set undolevels=1000                         " 最多可以撤销的改变个数.
     set undoreload=10000                        " 保存缓冲区重载撤销的最大行数.
@@ -56,13 +59,13 @@ set backupdir=~/.vim/.bak//                     " 备份文件目录.
 set directory=~/.vim/.swp//                     " 交换文件目录.
 set undodir=~/.vim/.undo//                      " 撤销信息文件目录.
 
-silent! call mkdir(expand('~/.vim/.tmp'), 'p', 0755)
-silent! call mkdir(expand('~/.vim/.swp'), 'p', 0755)
-silent! call mkdir(expand('~/.vim/.undo'), 'p', 0755)
+silent! call mkdir(expand("~/.vim/.tmp"), "p", 0755)
+silent! call mkdir(expand("~/.vim/.swp"), "p", 0755)
+silent! call mkdir(expand("~/.vim/.undo"), "p", 0755)
                                                 " 创建目录, 并且忽略可能出现的警告.
 set history=1000                                " 记住的命令行的行数.
 set report=0                                    " 始终报告已更改的行数.
-set viminfo='1000,f1,<500                       " viminfo 文件选项.
+set viminfo="1000,f1,<500                       " viminfo 文件选项.
 set viewoptions+=curdir,folds,options,cursor,unix,slash
                                                 " 保存和恢复的内容.
 
@@ -70,7 +73,7 @@ set viewoptions+=curdir,folds,options,cursor,unix,slash
 " 用户界面
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 
-let $LANG = 'en'                                " 默认语言.
+let $LANG = "en"                                " 默认语言.
 set langmenu=en_US.UTF-8                        " 菜单使用的语言.
 source $VIMRUNTIME/delmenu.vim                  " 删除菜单.
 source $VIMRUNTIME/menu.vim                     " 重新转入菜单, 避免中文Windows OS中出现乱码.
@@ -88,7 +91,7 @@ set guifont=Hack\ Regular\ 11,Consolas\ Regular\ 12,Courier\ New\ Regular\ 14
 endif
 
 " GUI 界面
-if has('gui_running')
+if has("gui_running")
     set guicursor=a:block-blinkon0              " 禁止光标闪烁.
     "set guioptions-=m                          " 禁用菜单栏.
     "set guioptions-=T                          " 禁用工具栏.
@@ -104,12 +107,12 @@ if has('gui_running')
 endif
 
 " 开启语法高亮
-if has('syntax')
+if has("syntax")
     syntax on
 endif
 
 " 在Gnome终端中启用256色调色板
-if $COLORTERM == 'gnome-terminal'
+if $COLORTERM == "gnome-terminal"
     set t_Co=256
 endif
 
@@ -117,15 +120,16 @@ set background=dark                             " 设置默认背景色.
 colorscheme desert                              " 设置配色方案.
 
 " 鼠标
-"set mouse=a                                     " 启用鼠标.
-"set mousehide                                   " 输入时隐藏鼠标指针.
-"set selection=exclusive                         " 选择时允许光标越界.
-"set selectmode=mouse,key                        " 启用鼠标选择.
-set mouse=
+set mouse=a                                     " 启用鼠标.
+set mousehide                                   " 输入时隐藏鼠标指针.
+set selection=exclusive                         " 选择时允许光标越界.
+set selectmode=mouse,key                        " 启用鼠标选择.
+"set selectmode=key                             " 启用键盘选择.
+"set mouse=                                     " 禁用鼠标.
 
 " 剪贴板
-if has('clipboard')
-    if has('unnamedplus')
+if has("clipboard")
+    if has("unnamedplus")
         set clipboard=unnamed,unnamedplus
     else
         set clipboard=unnamed
@@ -152,15 +156,16 @@ set cursorline                                  " 高亮光标所在屏幕行.
 
 highlight clear SignColumn                      " 清除列高亮.
 "highlight clear LineNr                         " 清除行号高亮.
+"highlight clear CursorLineNr                   " 清除光标所在行高亮.
 
 " 错误提示
-set noerrorbells                                " 有错误信息时响铃.
+set errorbells                                  " 有错误信息时响铃.
 set visualbell                                  " 使用可视铃声而不是响铃.
 
 " 缓冲区 & 标签 & 窗口
 set hidden                                      " 允许隐藏未保存的缓冲区.
-set tabpagemax=50                               " 设置Tabpage最大数量.
-"set showtabline=2                               " 显示 Tabpage 标签页.
+set tabpagemax=15                               " 设置Tabpage最大数量.
+"set showtabline=2                              " 显示 Tabpage 标签页.
 
 set title                                       " 让 Vim 设置窗口标题.
 set splitright                                  " 新窗口在当前窗口之右.
@@ -177,7 +182,7 @@ set sidescrolloff=3                             " 光标左右两侧保留的最
 set virtualedit=block,onemore                   " 允许光标出现在最后一个字符后面.
 
 set nolist                                      " 不显示 <Tab> 和 <EOL>.
-set listchars=tab:›\ ,trail:•,extends:#,nbsp:.  " list 模式下显示用的字符.
+set listchars=tab:?\ ,trail:?,extends:#,nbsp:.  " list 模式下显示用的字符.
 set display+=lastline                           " 始终尝试显示段落的最后一行.
 
 " 行格式
@@ -200,7 +205,7 @@ set cindent                                     " 打开 C/C++ 语言缩进优�
 set nostartofline                               " 关闭命令移动光标到行的首个非空白处.
 
 " 制表符和空格
-set smarttab                                    " 插入 <Tab> 时使用 'shiftwidth'.
+set smarttab                                    " 插入 <Tab> 时使用 "shiftwidth".
 set tabstop=4                                   " 编辑时 <Tab> 使用的空格数.
 set expandtab                                   " 键入 <Tab> 时使用空格.
 set softtabstop=4                               " 编辑时 <Tab> 使用的空格数.
@@ -208,11 +213,11 @@ set shiftwidth=4                                " (自动) 缩进使用的步进
 set noshiftround                                " 关闭缩进取整.
 
 " 代码折叠
-set foldenable                                  " 允许代码折叠.
+set nofoldenable                                " 允许代码折叠.
 set foldmarker={,}                              " 折叠标志.
 set foldlevel=0                                 " 设置折叠级别: 高于此级别的折叠会被关闭.
 set foldmethod=marker                           " 当前窗口使用的折叠方式.
-set foldnestmax=-1                              " 设置 'indent' 和 'syntax' 方法的最大折叠嵌套层数.
+set foldnestmax=-1                              " 设置 "indent" 和 "syntax" 方法的最大折叠嵌套层数.
 set foldcolumn=1                                " 设定指示折叠的列宽度.
 
 " 搜索
@@ -227,14 +232,16 @@ set regexpengine=1                              " 使用旧的正则表达式引
 
 " 状态栏
 set laststatus=2                                " 总是显示状态行.
-set statusline=%<%f\ 
-set statusline+=%w%h%m%r
-set statusline+=\ [%{&ff}/%Y]
-set statusline+=\ [%{getcwd()}]
-set statusline+=%=%-14.(%l,%c%V%)\ %p%%
-                                                " 状态行的定制格式.
-set ruler                                       " 标尺，在状态行里显示光标的行号和列号.
+                                                " 状态栏的定制格式.
+set statusline=%<%f\                            " 文件名.
+set statusline+=%w%h%m%r                        " 选项.
+set statusline+=\ [%{&ff}/%Y]                   " 文件类型.
+set statusline+=\ [%{getcwd()}]                 " 当前目录.
+set statusline+=%=%-14.(%l,%c%V%)\ %p%%         " 导航信息靠右对齐.
+
+set ruler                                       " 显示标尺.
 set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
+                                                " 标尺格式.
 
 " 命令行
 set cmdheight=1                                 " 命令行使用的行数.
@@ -287,13 +294,15 @@ set completeopt=longest,preview,menu            " 插入模式补全使用的选
 set nomodeline                                  " 忽略文件的模式行.
 set cryptmethod=blowfish2                       " 文件写入时所用的加密方式.
 
+set winaltkeys=no                               " Windows 禁用 ALT 操作菜单 (使得 ALT 可以用到 Vim 里).
+
+set ttyfast                                     " 使用快速终端连接.
 set lazyredraw                                  " 延时绘制(提升性能).
 set redrawtime=10000                            " 延时绘制时间.
 set shortmess+=filmnrxoOtT                      " 文件信息显示选项.
 
-set ttyfast                                     " 使用快速终端连接.
-set winaltkeys=no                               " Windows 禁用 ALT 操作菜单 (使得 ALT 可以用到 Vim 里).
-
 set errorformat+=[%f:%l]\ ->\ %m,[%f:%l]:%m     " 错误文件行格式的描述.
 set tags=./.tags;,.tags                         " 标签命令使用的文件名列表.
+
+
 
