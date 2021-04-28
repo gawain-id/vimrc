@@ -4,7 +4,7 @@
 "
 " @author gawain
 " @version 0.1
-" @last 2021/4/16 17:42:00
+" @last 2021/4/26 16:16:15
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim: set ts=4 sw=4 tw=78 et :
@@ -15,7 +15,7 @@
 
 let g:mapleader = ","
 let localmapleader = "\<Space>"
-let g:window_leader = 's'
+"let g:window_leader = 's'
 
 "=============================================================================="
 " 文件
@@ -35,11 +35,12 @@ cmap cd. lcd %:p:h
 "=============================================================================="
 " 缓冲区切换
 "=============================================================================="
+
 noremap <silent> <Leader>bn :bn<CR>
 noremap <silent> <Leader>bp :bp<CR>
 
 "=============================================================================="
-" 窗口切换 SPACE + 数字, CTRL + 方向键, SHIFT + TAB
+" 窗口切换 SPACE + 数字, SPACE + w + r/R 切换, SPACE + w + hljk 移动(正常 + 插入)
 "=============================================================================="
 
 noremap <silent> <Space>1 <C-W>1w
@@ -52,28 +53,32 @@ noremap <silent> <Space>7 <C-W>7w
 noremap <silent> <Space>8 <C-W>8w
 noremap <silent> <Space>9 <C-W>9w
 
-noremap <S-Tab> <C-W>W
+noremap <silent> <Space>wr <C-W>w
+noremap <silent> <Space>wR <C-W>W
 
-noremap <Space>wh <C-W>h
-noremap <Space>wl <C-W>l
-noremap <Space>wj <C-W>j
-noremap <Space>wk <C-W>k
-
-inoremap <Space>wh <Esc><C-W>h
-inoremap <Space>wl <Esc><C-W>l
-inoremap <Space>wj <Esc><C-W>j
-inoremap <Space>wk <Esc><C-W>k
+noremap <silent> <Space>wh <C-W>h
+noremap <silent> <Space>wl <C-W>l
+noremap <silent> <Space>wj <C-W>j
+noremap <silent> <Space>wk <C-W>k
+inoremap <silent> <Space>wh <Esc><C-W>h<CR>
+inoremap <silent> <Space>wl <Esc><C-W>l<CR>
+inoremap <silent> <Space>wj <Esc><C-W>j<CR>
+inoremap <silent> <Space>wk <Esc><C-W>k<CR>
 
 "=============================================================================="
 " 标签页管理: 创建, 关闭, 上一个, 下一个, 左移, 右移, 关闭其它所有
 " 标签页切换: <Leader> + 数字键, ALT + 数字键, gr 循环切换
 "=============================================================================="
 
-noremap <silent> <Leader>tt :tabnew<CR>
-noremap <silent> <Leader>tc :tabclose<CR>
-noremap <silent> <Leader>tn :tabnext<CR>
-noremap <silent> <Leader>tp :tabprev<CR>
-noremap <silent> <Leader>to :tabonly<CR>
+" 新建标签页
+noremap <silent> <Leader>t :tabnew<CR>
+
+" 跳至下一个/前一个 Tab
+noremap <silent> <Leader>wo gt
+noremap <silent> <Leader>wO gT
+
+" 智能关闭窗口,  标签页
+noremap <silent> <Leader>wq :<C-W>q<CR>
 
 "左移 Tab
 function! Tab_MoveLeft()
@@ -91,10 +96,11 @@ function! Tab_MoveRight()
     endif
 endfunction
 
-noremap <silent><Leader>tl :call Tab_MoveLeft()<CR>
-noremap <silent><Leader>tr :call Tab_MoveRight()<CR>
-noremap <M-Left> :call Tab_MoveLeft()<CR>
-noremap <M-Right> :call Tab_MoveRight()<CR>
+"  标签页移动
+noremap <silent> <Leader>tl :call Tab_MoveLeft()<CR>
+noremap <silent> <Leader>tr :call Tab_MoveRight()<CR>
+noremap <silent> <M-Left> :call Tab_MoveLeft()<CR>
+noremap <silent> <M-Right> :call Tab_MoveRight()<CR>
 
 " <Leader> + 数字键
 noremap <silent> <Leader>1 1gt<CR>
@@ -117,6 +123,7 @@ noremap <silent> <M-6> :tabn 6<CR>
 noremap <silent> <M-7> :tabn 7<CR>
 noremap <silent> <M-8> :tabn 8<CR>
 noremap <silent> <M-9> :tabn 9<CR>
+
 inoremap <silent> <M-1> <Esc>:tabn 1<CR>
 inoremap <silent> <M-2> <Esc>:tabn 2<CR>
 inoremap <silent> <M-3> <Esc>:tabn 3<CR>
@@ -139,6 +146,7 @@ if has("gui_macvim")
     noremap <silent> <D-7> :tabn 7<CR>
     noremap <silent> <D-8> :tabn 8<CR>
     noremap <silent> <D-9> :tabn 9<CR>
+
     inoremap <silent> <D-1> :tabn 1<CR>
     inoremap <silent> <D-2> :tabn 2<CR>
     inoremap <silent> <D-3> :tabn 3<CR>
@@ -149,9 +157,6 @@ if has("gui_macvim")
     inoremap <silent> <D-8> :tabn 8<CR>
     inoremap <silent> <D-9> :tabn 9<CR>
 endif
-
-" 跳至前一个 Tab，常用于两个 Tab 来回切换
-noremap gr gt
 
 "=============================================================================="
 " 折叠级别快速设置
@@ -172,40 +177,45 @@ noremap <silent> <Leader>f9 :set foldlevel=9<CR>
 " 功能切换
 "=============================================================================="
 
+" 重做
+noremap U :redo<CR>
+
 " 可视模式 重复动作
 vnoremap . :normal .<CR>
 
+"  隐藏字符显示
+nmap <silent> <Leader>tl :set list!<CR>:set list?<CR>
+
+" 搜索区分大小写
+nmap <silent> <Leader>si :set ic!<CR>:set ic?<CR>
+
 " 清除搜索高亮
-nmap <silent> <Leader><Space> :set hlsearch!<CR>
-nmap <silent> <Leader>sc :set hlsearch!<CR>
+nmap <silent> <Leader><Space> :set hls!<CR>
+nmap <silent> <Leader>sc :set hls!<CR>
 
 " 行号切换
-map <silent> <Leader>tn :set number!<CR>
-map <silent> <Leader>trn :set relativenumber!<CR>
+nmap <silent> <Leader>tn :set nu!<CR>
+nmap <silent> <Leader>trn :set rnu!<CR>
 
 " Paste 切换
-map <Leader>tp :set paste!<CR>:set paste?<CR>
-imap <Leader>tp <C-O>:set paste!<CR>
-set pastetoggle=<Leader>tp
+nmap <Leader>tp <Esc>:set paste!<CR>:set paste?<CR>
 
 " 背景切换
-map <silent> <Leader>tb :call ToggleBackground()<CR>
+nmap <silent> <Leader>tb :call ToggleBackground()<CR>
 
 " 全屏切换
-map <silent> <Leader>TF :call system("wmctrl -ir " . v:windowid . " -b toggle,fullscreen")<CR>
+nmap <silent> <Leader>TF :call system("wmctrl -ir " . v:windowid . " -b toggle,fullscreen")<CR>
 
 "=============================================================================="
 " 功能函数
 "=============================================================================="
 
 " 背景切换
-if exists("ToggleBackground") == 0
-    function ToggleBackground()
-        if &background == "dark"
-            set background=light
-        else
-            set background=dark
-        endif
-    endfunction
-endif
+function ToggleBackground()
+    if &background == "dark"
+        set background=light
+    else
+        set background=dark
+    endif
+endfunction
 

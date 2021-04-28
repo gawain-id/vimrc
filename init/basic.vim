@@ -1,10 +1,10 @@
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
 " @file basic.vim
 " 
 " @author gawain
 " @version 0.1
-" @last 2021/4/24 12:16:22
+" @last 2021/4/26 23:14:07
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim: set ts=4 sw=4 tw=78 et :
@@ -21,7 +21,7 @@ let g:is_osx=has("mac") || has("macunix")
 
                                                 " 操作系统类型.
 if has("autocmd")
-    filetype plugin indent on                   " 开启文件类型检测，包括自动缩进及设置.
+    "filetype plugin indent on                   " 开启文件类型检测，包括自动缩进及设置.
 endif
 
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
@@ -55,17 +55,13 @@ if has("persistent_undo")                       " undo 设置.
     set undoreload=10000                        " 保存缓冲区重载撤销的最大行数.
 endif
 
-set backupdir=~/.vim/.bak//                     " 备份文件目录.
+set backupdir=~/.vim/.bak//                     "备份文件目录.
 set directory=~/.vim/.swp//                     " 交换文件目录.
 set undodir=~/.vim/.undo//                      " 撤销信息文件目录.
 
-silent! call mkdir(expand("~/.vim/.tmp"), "p", 0755)
-silent! call mkdir(expand("~/.vim/.swp"), "p", 0755)
-silent! call mkdir(expand("~/.vim/.undo"), "p", 0755)
-                                                " 创建目录, 并且忽略可能出现的警告.
 set history=1000                                " 记住的命令行的行数.
 set report=0                                    " 始终报告已更改的行数.
-set viminfo="1000,f1,<500                       " viminfo 文件选项.
+set viminfo='1000,f1,<500                       " viminfo 文件选项.
 set viewoptions+=curdir,folds,options,cursor,unix,slash
                                                 " 保存和恢复的内容.
 
@@ -93,15 +89,15 @@ endif
 " GUI 界面
 if has("gui_running")
     set guicursor=a:block-blinkon0              " 禁止光标闪烁.
-    "set guioptions-=m                          " 禁用菜单栏.
-    "set guioptions-=T                          " 禁用工具栏.
+    set guioptions-=m                           " 禁用菜单栏.
+    set guioptions-=T                           " 禁用工具栏.
     set guioptions-=l                           " 禁用左边的滚动条.
     set guioptions-=L                           " 禁用垂直分割窗口左边的滚动条.
     set guioptions-=r                           " 禁用右边的滚动条.
     set guioptions-=R                           " 禁用垂直分割窗口右边的滚动条.
     set guioptions-=                            " 禁用底部滚动条.
-    "set guioptions-=e                          " 启动GUI标签页.
-    set showtabline=2                           " 禁用标签页.
+    set guioptions-=e                           " 启动GUI标签页.
+    "set showtabline=0                          " 禁用标签页.
     "set guitablabel=%N/\ %t\ %M                " GUI 标签页行使用的标签的文体.
     set t_Co=256                                " 启用终端256色支持.
 endif
@@ -124,7 +120,7 @@ set mouse=a                                     " 启用鼠标.
 set mousehide                                   " 输入时隐藏鼠标指针.
 set selection=exclusive                         " 选择时允许光标越界.
 set selectmode=mouse,key                        " 启用鼠标选择.
-"set selectmode=key                             " 启用键盘选择.
+"set selectmode=key                             " 只启用键盘选择.
 "set mouse=                                     " 禁用鼠标.
 
 " 剪贴板
@@ -138,7 +134,7 @@ endif
 
 " 按键设置
 set backspace=indent,eol,start                  " 设置 Backspace 键模式.
-"set keymodel=startsel,stopsel                   " 允许用键击开始/停止选择.
+set keymodel=startsel,stopsel                   " 允许用键击开始/停止选择.
 set scrolljump=5                                " 滚动所需的最少行数.
 set scrolloff=3                                 " 光标上下的最少行数.
 set timeout                                     " 映射等待超时.
@@ -147,14 +143,14 @@ set ttimeoutlen=50                              " 设置<ESC>键响应时间.
 " 行号
 set number                                      " 显示行号.
 set relativenumber                              " 显示相对行号.
-set signcolumn=yes                              " 总是显示标号列(用于显示 mark/gitdiff/诊断信息).
+"set signcolumn=yes                              " 总是显示标号列(用于显示 mark/gitdiff/诊断信息).
 
 " 高亮显示
 set showmatch                                   " 显示匹配的括号.
 set matchtime=2                                 " 显示括号匹配的时间.
 set cursorline                                  " 高亮光标所在屏幕行.
 
-highlight clear SignColumn                      " 清除列高亮.
+"highlight clear SignColumn                      " 清除列高亮.
 "highlight clear LineNr                         " 清除行号高亮.
 "highlight clear CursorLineNr                   " 清除光标所在行高亮.
 
@@ -165,7 +161,7 @@ set visualbell                                  " 使用可视铃声而不是响
 " 缓冲区 & 标签 & 窗口
 set hidden                                      " 允许隐藏未保存的缓冲区.
 set tabpagemax=15                               " 设置Tabpage最大数量.
-"set showtabline=2                              " 显示 Tabpage 标签页.
+set showtabline=2                               " 显示 Tabpage 标签页.
 
 set title                                       " 让 Vim 设置窗口标题.
 set splitright                                  " 新窗口在当前窗口之右.
@@ -182,7 +178,7 @@ set sidescrolloff=3                             " 光标左右两侧保留的最
 set virtualedit=block,onemore                   " 允许光标出现在最后一个字符后面.
 
 set nolist                                      " 不显示 <Tab> 和 <EOL>.
-set listchars=tab:?\ ,trail:?,extends:#,nbsp:.  " list 模式下显示用的字符.
+set listchars=tab:›\ ,trail:•,extends:#,nbsp:.  " list 模式下显示用的字符.
 set display+=lastline                           " 始终尝试显示段落的最后一行.
 
 " 行格式
@@ -225,8 +221,8 @@ set hlsearch                                    " 高亮搜索内容.
 set incsearch                                   " 查找输入时动态增量显示查找结果.
 set ignorecase                                  " 搜索时忽略大小写.
 set smartcase                                   " 智能搜索大小写判断, 默认忽略大小写, 除非搜索内容包含大写字母.
-set gdefault                                    " 全局替换.
-set nowrapscan                                  " 禁止搜索在文件尾折回文件头.
+"set gdefault                                   " 全局替换.
+"set nowrapscan                                 " 禁止搜索在文件尾折回文件头.
 set magic                                       " 转义搜索模式所用的特殊字符.
 set regexpengine=1                              " 使用旧的正则表达式引擎 .
 
@@ -242,7 +238,6 @@ set statusline+=%=%-14.(%l,%c%V%)\ %p%%         " 导航信息靠右对齐.
 set ruler                                       " 显示标尺.
 set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
                                                 " 标尺格式.
-
 " 命令行
 set cmdheight=1                                 " 命令行使用的行数.
 set showcmd                                     " 在状态行里显示 (部分) 命令.
@@ -303,6 +298,4 @@ set shortmess+=filmnrxoOtT                      " 文件信息显示选项.
 
 set errorformat+=[%f:%l]\ ->\ %m,[%f:%l]:%m     " 错误文件行格式的描述.
 set tags=./.tags;,.tags                         " 标签命令使用的文件名列表.
-
-
 
