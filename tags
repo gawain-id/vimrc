@@ -1,0 +1,131 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+$LANG	.\init\basic.vim	/^let $LANG = "en"                                " 默认语言.$/;"	v
+.	.\init\keymaps.vim	/^vnoremap . :normal .<CR>$/;"	m
+<D-1>	.\init\keymaps.vim	/^    inoremap <silent> <D-1> :tabn 1<CR>$/;"	m
+<D-1>	.\init\keymaps.vim	/^    noremap <silent> <D-1> :tabn 1<CR>$/;"	m
+<D-2>	.\init\keymaps.vim	/^    inoremap <silent> <D-2> :tabn 2<CR>$/;"	m
+<D-2>	.\init\keymaps.vim	/^    noremap <silent> <D-2> :tabn 2<CR>$/;"	m
+<D-3>	.\init\keymaps.vim	/^    inoremap <silent> <D-3> :tabn 3<CR>$/;"	m
+<D-3>	.\init\keymaps.vim	/^    noremap <silent> <D-3> :tabn 3<CR>$/;"	m
+<D-4>	.\init\keymaps.vim	/^    inoremap <silent> <D-4> :tabn 4<CR>$/;"	m
+<D-4>	.\init\keymaps.vim	/^    noremap <silent> <D-4> :tabn 4<CR>$/;"	m
+<D-5>	.\init\keymaps.vim	/^    inoremap <silent> <D-5> :tabn 5<CR>$/;"	m
+<D-5>	.\init\keymaps.vim	/^    noremap <silent> <D-5> :tabn 5<CR>$/;"	m
+<D-6>	.\init\keymaps.vim	/^    inoremap <silent> <D-6> :tabn 6<CR>$/;"	m
+<D-6>	.\init\keymaps.vim	/^    noremap <silent> <D-6> :tabn 6<CR>$/;"	m
+<D-7>	.\init\keymaps.vim	/^    inoremap <silent> <D-7> :tabn 7<CR>$/;"	m
+<D-7>	.\init\keymaps.vim	/^    noremap <silent> <D-7> :tabn 7<CR>$/;"	m
+<D-8>	.\init\keymaps.vim	/^    inoremap <silent> <D-8> :tabn 8<CR>$/;"	m
+<D-8>	.\init\keymaps.vim	/^    noremap <silent> <D-8> :tabn 8<CR>$/;"	m
+<D-9>	.\init\keymaps.vim	/^    inoremap <silent> <D-9> :tabn 9<CR>$/;"	m
+<D-9>	.\init\keymaps.vim	/^    noremap <silent> <D-9> :tabn 9<CR>$/;"	m
+<Leader>1	.\init\keymaps.vim	/^noremap <silent> <Leader>1 1gt<CR>$/;"	m
+<Leader>2	.\init\keymaps.vim	/^noremap <silent> <Leader>2 2gt<CR>$/;"	m
+<Leader>3	.\init\keymaps.vim	/^noremap <silent> <Leader>3 3gt<CR>$/;"	m
+<Leader>4	.\init\keymaps.vim	/^noremap <silent> <Leader>4 4gt<CR>$/;"	m
+<Leader>5	.\init\keymaps.vim	/^noremap <silent> <Leader>5 5gt<CR>$/;"	m
+<Leader>6	.\init\keymaps.vim	/^noremap <silent> <Leader>6 6gt<CR>$/;"	m
+<Leader>7	.\init\keymaps.vim	/^noremap <silent> <Leader>7 7gt<CR>$/;"	m
+<Leader>8	.\init\keymaps.vim	/^noremap <silent> <Leader>8 8gt<CR>$/;"	m
+<Leader>9	.\init\keymaps.vim	/^noremap <silent> <Leader>9 9gt<CR>$/;"	m
+<Leader><Space>	.\init\keymaps.vim	/^nmap <silent> <Leader><Space> :set hls!<CR>$/;"	m
+<Leader>TF	.\init\keymaps.vim	/^nmap <silent> <Leader>TF :call system("wmctrl -ir " . v:windowid . " -b toggle,fullscreen")<CR>$/;"	m
+<Leader>bn	.\init\keymaps.vim	/^noremap <silent> <Leader>bn :bn<CR>$/;"	m
+<Leader>bp	.\init\keymaps.vim	/^noremap <silent> <Leader>bp :bp<CR>$/;"	m
+<Leader>f0	.\init\keymaps.vim	/^noremap <silent> <Leader>f0 :set foldlevel=0<CR>$/;"	m
+<Leader>f1	.\init\keymaps.vim	/^noremap <silent> <Leader>f1 :set foldlevel=1<CR>$/;"	m
+<Leader>f2	.\init\keymaps.vim	/^noremap <silent> <Leader>f2 :set foldlevel=2<CR>$/;"	m
+<Leader>f3	.\init\keymaps.vim	/^noremap <silent> <Leader>f3 :set foldlevel=3<CR>$/;"	m
+<Leader>f4	.\init\keymaps.vim	/^noremap <silent> <Leader>f4 :set foldlevel=4<CR>$/;"	m
+<Leader>f5	.\init\keymaps.vim	/^noremap <silent> <Leader>f5 :set foldlevel=5<CR>$/;"	m
+<Leader>f6	.\init\keymaps.vim	/^noremap <silent> <Leader>f6 :set foldlevel=6<CR>$/;"	m
+<Leader>f7	.\init\keymaps.vim	/^noremap <silent> <Leader>f7 :set foldlevel=7<CR>$/;"	m
+<Leader>f8	.\init\keymaps.vim	/^noremap <silent> <Leader>f8 :set foldlevel=8<CR>$/;"	m
+<Leader>f9	.\init\keymaps.vim	/^noremap <silent> <Leader>f9 :set foldlevel=9<CR>$/;"	m
+<Leader>fs	.\init\keymaps.vim	/^nnoremap <Leader>fs :w<CR>$/;"	m
+<Leader>fw	.\init\keymaps.vim	/^nnoremap <Leader>fw :w !sudo tee % >\/dev\/null<CR>$/;"	m
+<Leader>sc	.\init\keymaps.vim	/^nmap <silent> <Leader>sc :set hls!<CR>$/;"	m
+<Leader>si	.\init\keymaps.vim	/^nmap <silent> <Leader>si :set ic!<CR>:set ic?<CR>$/;"	m
+<Leader>sv	.\init\keymaps.vim	/^nnoremap <silent> <Leader>sv :source $MYVIMRC<CR>$/;"	m
+<Leader>t	.\init\keymaps.vim	/^noremap <silent> <Leader>t :tabnew<CR>$/;"	m
+<Leader>tb	.\init\keymaps.vim	/^nmap <silent> <Leader>tb :call ToggleBackground()<CR>$/;"	m
+<Leader>tl	.\init\keymaps.vim	/^nmap <silent> <Leader>tl :set list!<CR>:set list?<CR>$/;"	m
+<Leader>tl	.\init\keymaps.vim	/^noremap <silent> <Leader>tl :call Tab_MoveLeft()<CR>$/;"	m
+<Leader>tn	.\init\keymaps.vim	/^nmap <silent> <Leader>tn :set nu!<CR>$/;"	m
+<Leader>tp	.\init\keymaps.vim	/^nmap <Leader>tp <Esc>:set paste!<CR>:set paste?<CR>$/;"	m
+<Leader>tr	.\init\keymaps.vim	/^noremap <silent> <Leader>tr :call Tab_MoveRight()<CR>$/;"	m
+<Leader>trn	.\init\keymaps.vim	/^nmap <silent> <Leader>trn :set rnu!<CR>$/;"	m
+<Leader>wO	.\init\keymaps.vim	/^noremap <silent> <Leader>wO gT$/;"	m
+<Leader>wo	.\init\keymaps.vim	/^noremap <silent> <Leader>wo gt$/;"	m
+<Leader>wq	.\init\keymaps.vim	/^noremap <silent> <Leader>wq :<C-W>q<CR>$/;"	m
+<M-1>	.\init\keymaps.vim	/^inoremap <silent> <M-1> <Esc>:tabn 1<CR>$/;"	m
+<M-1>	.\init\keymaps.vim	/^noremap <silent> <M-1> :tabn 1<CR>$/;"	m
+<M-2>	.\init\keymaps.vim	/^inoremap <silent> <M-2> <Esc>:tabn 2<CR>$/;"	m
+<M-2>	.\init\keymaps.vim	/^noremap <silent> <M-2> :tabn 2<CR>$/;"	m
+<M-3>	.\init\keymaps.vim	/^inoremap <silent> <M-3> <Esc>:tabn 3<CR>$/;"	m
+<M-3>	.\init\keymaps.vim	/^noremap <silent> <M-3> :tabn 3<CR>$/;"	m
+<M-4>	.\init\keymaps.vim	/^inoremap <silent> <M-4> <Esc>:tabn 4<CR>$/;"	m
+<M-4>	.\init\keymaps.vim	/^noremap <silent> <M-4> :tabn 4<CR>$/;"	m
+<M-5>	.\init\keymaps.vim	/^inoremap <silent> <M-5> <Esc>:tabn 5<CR>$/;"	m
+<M-5>	.\init\keymaps.vim	/^noremap <silent> <M-5> :tabn 5<CR>$/;"	m
+<M-6>	.\init\keymaps.vim	/^inoremap <silent> <M-6> <Esc>:tabn 6<CR>$/;"	m
+<M-6>	.\init\keymaps.vim	/^noremap <silent> <M-6> :tabn 6<CR>$/;"	m
+<M-7>	.\init\keymaps.vim	/^inoremap <silent> <M-7> <Esc>:tabn 7<CR>$/;"	m
+<M-7>	.\init\keymaps.vim	/^noremap <silent> <M-7> :tabn 7<CR>$/;"	m
+<M-8>	.\init\keymaps.vim	/^inoremap <silent> <M-8> <Esc>:tabn 8<CR>$/;"	m
+<M-8>	.\init\keymaps.vim	/^noremap <silent> <M-8> :tabn 8<CR>$/;"	m
+<M-9>	.\init\keymaps.vim	/^inoremap <silent> <M-9> <Esc>:tabn 9<CR>$/;"	m
+<M-9>	.\init\keymaps.vim	/^noremap <silent> <M-9> :tabn 9<CR>$/;"	m
+<M-Left>	.\init\keymaps.vim	/^noremap <silent> <M-Left> :call Tab_MoveLeft()<CR>$/;"	m
+<M-Right>	.\init\keymaps.vim	/^noremap <silent> <M-Right> :call Tab_MoveRight()<CR>$/;"	m
+<Space>1	.\init\keymaps.vim	/^noremap <silent> <Space>1 <C-W>1w$/;"	m
+<Space>2	.\init\keymaps.vim	/^noremap <silent> <Space>2 <C-W>2w$/;"	m
+<Space>3	.\init\keymaps.vim	/^noremap <silent> <Space>3 <C-W>3w$/;"	m
+<Space>4	.\init\keymaps.vim	/^noremap <silent> <Space>4 <C-W>4w$/;"	m
+<Space>5	.\init\keymaps.vim	/^noremap <silent> <Space>5 <C-W>5w$/;"	m
+<Space>6	.\init\keymaps.vim	/^noremap <silent> <Space>6 <C-W>6w$/;"	m
+<Space>7	.\init\keymaps.vim	/^noremap <silent> <Space>7 <C-W>7w$/;"	m
+<Space>8	.\init\keymaps.vim	/^noremap <silent> <Space>8 <C-W>8w$/;"	m
+<Space>9	.\init\keymaps.vim	/^noremap <silent> <Space>9 <C-W>9w$/;"	m
+<Space>wR	.\init\keymaps.vim	/^noremap <silent> <Space>wR <C-W>W$/;"	m
+<Space>wh	.\init\keymaps.vim	/^inoremap <silent> <Space>wh <Esc><C-W>h<CR>$/;"	m
+<Space>wh	.\init\keymaps.vim	/^noremap <silent> <Space>wh <C-W>h$/;"	m
+<Space>wj	.\init\keymaps.vim	/^inoremap <silent> <Space>wj <Esc><C-W>j<CR>$/;"	m
+<Space>wj	.\init\keymaps.vim	/^noremap <silent> <Space>wj <C-W>j$/;"	m
+<Space>wk	.\init\keymaps.vim	/^inoremap <silent> <Space>wk <Esc><C-W>k<CR>$/;"	m
+<Space>wk	.\init\keymaps.vim	/^noremap <silent> <Space>wk <C-W>k$/;"	m
+<Space>wl	.\init\keymaps.vim	/^inoremap <silent> <Space>wl <Esc><C-W>l<CR>$/;"	m
+<Space>wl	.\init\keymaps.vim	/^noremap <silent> <Space>wl <C-W>l$/;"	m
+<Space>wr	.\init\keymaps.vim	/^noremap <silent> <Space>wr <C-W>w$/;"	m
+LoadScript	.\init.vim	/^command! -nargs=1 LoadScript exec 'source ' .  s:home . '\/' . '<args>'$/;"	c
+MyPluginSetup	.\init\plugins.vim	/^augroup MyPluginSetup$/;"	a
+PlugInstalled	.\init\plugins.vim	/^function! PlugInstalled(plug)$/;"	f
+Tab_MoveLeft	.\init\keymaps.vim	/^function! Tab_MoveLeft()$/;"	f
+Tab_MoveRight	.\init\keymaps.vim	/^function! Tab_MoveRight()$/;"	f
+ToggleBackground	.\init\keymaps.vim	/^function ToggleBackground()$/;"	f
+U	.\init\keymaps.vim	/^noremap U :redo<CR>$/;"	m
+VimInitStyle	.\init\style.vim	/^augroup VimInitStyle$/;"	a
+VimUnixTerminalGroup	.\init\style.vim	/^		augroup VimUnixTerminalGroup$/;"	a
+Vim_NeatBuffer	.\init\style.vim	/^function! Vim_NeatBuffer(bufnr, fullname)$/;"	f
+Vim_NeatGuiTabLabel	.\init\style.vim	/^function! Vim_NeatGuiTabLabel()$/;"	f
+Vim_NeatGuiTabTip	.\init\style.vim	/^function! Vim_NeatGuiTabTip()$/;"	f
+Vim_NeatTabLabel	.\init\style.vim	/^function! Vim_NeatTabLabel(n)$/;"	f
+Vim_NeatTabLine	.\init\style.vim	/^function! Vim_NeatTabLine()$/;"	f
+cd.	.\init\keymaps.vim	/^cmap cd. lcd %:p:h$/;"	m
+cwd	.\init\keymaps.vim	/^cmap cwd lcd %:p:h$/;"	m
+g:airline#extensions#tabline#enabled	.\init\plugins.vim	/^        let g:airline#extensions#tabline#enabled = 1$/;"	v
+g:airline#extensions#tabline#show_buffers	.\init\plugins.vim	/^        let g:airline#extensions#tabline#show_buffers = 0$/;"	v
+g:config_vim_tab_style	.\init\style.vim	/^	let g:config_vim_tab_style = 3$/;"	v
+g:is_linux	.\init\basic.vim	/^let g:is_linux = has("linux") && !has("unix") && !has("macunix") && !has("win32unix")$/;"	v
+g:is_osx	.\init\basic.vim	/^let g:is_osx=has("mac") || has("macunix")$/;"	v
+g:is_windows	.\init\basic.vim	/^let g:is_windows= has("win32") || has("win64")$/;"	v
+g:mapleader	.\init\keymaps.vim	/^let g:mapleader = ","$/;"	v
+localmapleader	.\init\keymaps.vim	/^let localmapleader = "\\<Space>"$/;"	v
+s:home	.\init.vim	/^let s:home = fnamemodify(resolve(expand('<sfile>:p')), ':h')$/;"	v
+s:loaded	.\init.vim	/^    let s:loaded = 1$/;"	v
+setup_dirvish	.\init\plugins.vim	/^function! s:setup_dirvish()$/;"	f

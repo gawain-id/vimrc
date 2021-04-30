@@ -21,7 +21,7 @@ let g:is_osx=has("mac") || has("macunix")
 
                                                 " 操作系统类型.
 if has("autocmd")
-    "filetype plugin indent on                   " 开启文件类型检测，包括自动缩进及设置.
+    filetype plugin indent on                   " 开启文件类型检测，包括自动缩进及设置.
 endif
 
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
@@ -53,15 +53,17 @@ if has("persistent_undo")                       " undo 设置.
     set undofile                                " 把撤销信息写入一个文件里.
     set undolevels=1000                         " 最多可以撤销的改变个数.
     set undoreload=10000                        " 保存缓冲区重载撤销的最大行数.
+    set updatecount=100                         " 交换文件写入条件 100个字符.
 endif
 
-set backupdir=~/.vim/.bak//                     "备份文件目录.
-set directory=~/.vim/.swp//                     " 交换文件目录.
-set undodir=~/.vim/.undo//                      " 撤销信息文件目录.
+set backupdir=~/.vim/files/backup//             " 备份文件目录.
+set directory=~/.vim/files/swap//               " 交换文件目录.
+set undodir=~/.vim/files/undo//                 " 撤销信息文件目录.
 
 set history=1000                                " 记住的命令行的行数.
 set report=0                                    " 始终报告已更改的行数.
-set viminfo='1000,f1,<500                       " viminfo 文件选项.
+set synmaxcol=200                               " 搜索语法项目的最大列数.
+set viminfo='1000,f1,<500,n~/.vim/files/viminfo " viminfo 文件选项.
 set viewoptions+=curdir,folds,options,cursor,unix,slash
                                                 " 保存和恢复的内容.
 
@@ -82,7 +84,7 @@ set guifont=Hack\ Regular\ 11,Consolas\ Regular\ 12,Courier\ New\ Regular\ 14
     elseif g:is_osx
         set guifont=Hack\ Regular:h11,Consolas\ Regular:h12,Courier\ New\ Regular:h14
     elseif g:is_windows
-        set guifont=Hack:h10.5,Consolas:h10,Courier_New:h10
+        set guifont=Hack_NF:h10.5,Consolas:h10,Courier_New:h10
     endif
 endif
 
@@ -143,7 +145,6 @@ set ttimeoutlen=50                              " 设置<ESC>键响应时间.
 " 行号
 set number                                      " 显示行号.
 set relativenumber                              " 显示相对行号.
-"set signcolumn=yes                              " 总是显示标号列(用于显示 mark/gitdiff/诊断信息).
 
 " 高亮显示
 set showmatch                                   " 显示匹配的括号.
@@ -221,8 +222,7 @@ set hlsearch                                    " 高亮搜索内容.
 set incsearch                                   " 查找输入时动态增量显示查找结果.
 set ignorecase                                  " 搜索时忽略大小写.
 set smartcase                                   " 智能搜索大小写判断, 默认忽略大小写, 除非搜索内容包含大写字母.
-"set gdefault                                   " 全局替换.
-"set nowrapscan                                 " 禁止搜索在文件尾折回文件头.
+set wrapscan                                    " 搜索在文件末回绕回文件首.
 set magic                                       " 转义搜索模式所用的特殊字符.
 set regexpengine=1                              " 使用旧的正则表达式引擎 .
 

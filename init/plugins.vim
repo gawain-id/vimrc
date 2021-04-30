@@ -104,10 +104,6 @@ augroup END
 
 " }
 
-"  ENHANCED PLUGINS {
-    
-" }
-
 " UI PLUGINS {
 
     " 上次的编辑位置
